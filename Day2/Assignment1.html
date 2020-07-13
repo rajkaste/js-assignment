@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Day 2 Assignment 1</title>
+</head>
+
+<body>
+  <h2>LetsUpgrade JS Assignment</h2>
+  <p><strong>Name: </strong>Raj Sandip Kaste</p>
+  <p><strong>Day & Time Info:</strong></p>
+  <!-- <button type="button" name="button" onclick= "window.print();">print!</button> -->
+  <script type="text/javascript">
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var d = new Date();
+    var dayName = days[d.getDay()];
+    document.write("Today is: " + dayName);
+  document.write("<br>");
+  document.write("<br>");
+    var time = new Date();
+       var hours = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
+       var am_pm = time.getHours() >= 12 ? "PM" : "AM";
+       hours = hours < 10 ? "0" + hours : hours;
+       var minutes = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
+       var seconds = time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds();
+       time = hours +" " + am_pm + " : " + minutes + " : " + seconds;
+    document.write("Current Time is: " + time);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Day 2 Assignment 3</title>
+</head>
+
+<body>
+  <h2>LetsUpgrade JS Assignment</h2>
+  <p><strong>Name: </strong>Raj Sandip Kaste</p>
+  <p><strong>Date Info:</strong></p>
+  <!-- <button type="button" name="button" onclick= "window.print();">print!</button> -->
+  <script type="text/javascript">
+
+    var today = new Date();
+    var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+    document.write("Current Date in the given formats:");
+
+    document.write("<br><br>mm-dd-yyyy: " + mm + '-' + dd + '-' + yyyy);
+    document.write("<br><br>mm/dd/yyyy: " + mm + '/' + dd + '/' + yyyy);
+    document.write("<br><br>dd-mm-yyyy: " + dd + '-' + mm + '-' + yyyy);
+    document.write("<br><br>dd/mm/yyyy: " + dd + '/' + mm + '/' + yyyy);
+
+  </script>
+</body>
+
+</html>
