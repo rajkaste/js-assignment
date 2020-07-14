@@ -1,0 +1,841 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment Day 1 | 14th July 2020</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="483d9147-9c4f-4c95-a743-914e27300177" class="page sans"><header><h1 class="page-title">Assignment Day 1 | 14th July 2020</h1></header><div class="page-body"><blockquote id="fde20b03-4686-47c7-a5ff-4baf13af27eb" class=""><em>Raj Sandip Kaste</em></blockquote><h2 id="d74f7af8-9a1a-4853-9021-4ba7c9ad1b6b" class="">Question 1:</h2><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="1fb7e2b4-d4f1-4976-aeea-11efd2e5d9a5"><div style="font-size:1.5em"><span class="icon">📍</span></div><div style="width:100%">Explore and explain the various methods in console function Explain them Ex. console.log() console.warn(). etc...</div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="68c4148d-73fc-4005-b385-c0f191a51633"><div style="font-size:1.5em"></div><div style="width:100%">A Web console is a tool which is mainly used to log information associated with a web page like: network requests, javascript, security errors, warnings, CSS etc. It enables us to interact with a web page by executing javascript expression in the contents of the page. 
+The Console object provides access to the browser&#x27;s debugging console.
+We can open a console in web browser by using F12 key in windows. 
+
+<mark class="highlight-yellow_background"><strong>Methods:-</strong></mark>
+<strong>1. console.log()</strong>
+For general output of logging information. You may use string substitution and additional arguments with this method.
+
+<strong>2. console.warn()</strong>
+Outputs a warning message. You may use string substitution and additional arguments with this method.
+
+<strong>3. console.error()</strong>
+Outputs an error message. You may use string substitution and additional arguments with this method.
+
+<strong>4. console.table()</strong>
+Displays tabular data as a table.
+
+<strong>5. console.time()</strong>
+Starts a timer with a name specified as an input parameter. Up to 10,000 simultaneous timers can run on a given page.
+
+<strong>6. console.timeEnd()</strong>
+Stops the specified timer and logs the elapsed time in seconds since it started.
+
+<strong>7. console.clear()</strong>
+Clear the console.
+
+<strong>8. console.count()</strong>
+Log the number of times this line has been called with the given label.
+
+<strong>9. console.group()
+</strong>Creates a new inline group, indenting all following output by another level. To move back out a level, call groupEnd().
+
+<strong>10. console.groupCollapsed()</strong>
+Creates a new inline group, indenting all following output by another level. However, unlike group() this starts with the inline group collapsed requiring the use of a disclosure button to expand it. To move back out a level, call groupEnd().
+<strong>
+</strong><strong><mark class="highlight-yellow">Execution of these methods are available in the HTML file.</mark></strong></div></figure><p id="b61d5999-d827-4605-935f-d77421095c7a" class="">
+</p><p id="a53aeb66-1734-4245-b3db-2648218ea098" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7a6ac790-f223-4990-a3a7-7cc4cdae9ea7"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">A Web console is a tool which is mainly used to log information associated with a web page like: network requests, javascript, security errors, warnings, CSS etc. It enables us to interact with a web page by executing javascript expression in the contents of the page. The Console object provides access to the browser&#x27;s debugging console.
+We can open a console in web browser by using F12 key in windows. </div></figure><hr id="fee851c1-abc9-4112-b4ce-7cc06d8d4443"/><h2 id="8c3559c9-4d87-4766-80e3-d6b4de0a4fa4" class="">Question 2:</h2><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="4c2417e3-7fb4-4899-926c-c8f4b0429aa2"><div style="font-size:1.5em"><span class="icon">📍</span></div><div style="width:100%">Write the difference between var, let and const with code examples.</div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="34c68920-9f57-440b-b45f-05133896e8ac"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">In Javascript one can define variables using the keywords<strong> var, let</strong> or <strong>const</strong>.
+Eg:  <mark class="highlight-yellow_background">var a=10;</mark>
+       <mark class="highlight-yellow_background">let b=20;</mark>
+       <mark class="highlight-yellow_background">const PI=3.14;
+
+</mark><mark class="highlight-purple_background">var:</mark> The scope of a variable defined with the keyword “var” is limited to the “function” within which it is defined. If it is defined outside any function, the scope of the variable is global. var is “function scoped”.
+
+<mark class="highlight-purple_background">let:</mark> The scope of a variable defined with the keyword “let” or “const” is limited to the “block” defined by curly braces i.e. {} .
+“let” and “const” are“block scoped”.
+
+<mark class="highlight-purple_background">const:</mark> The scope of a variable defined with the keyword “const” is limited to the block defined by curly braces. However if a variable is defined with keyword const, it cannot be reassigned.
+“const” cannot be re-assigned to a new value. However it CAN be mutated.
+
+<strong>Function scoped vs. Block scoped</strong>
+Let us understand this by some code examples,
+
+<strong>Block Scope</strong>
+In Javascript you can define a code block using curly braces i.e {}.
+Consider the following code that has 2 code blocks each delimited by {}.</div></figure><pre id="b35c4df1-1a59-4c60-b9cd-56e5f16be53e" class="code"><code>{
+  var a=10;
+  console.log(a);
+} //block 1
+{
+  a++;
+  console.log(a);
+} //block 2
+/* Since we are using &quot;var a=10&quot;, scope of &quot;a&quot; is limited to the function 
+within which it is defined. In this case it is within the global function scope */</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="663a5a0c-7520-4d1d-ad14-47cbab624d2d"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">In the above example, since we are using the keyword var to define the variable a, the scope of a is limited to the function within which it is defined. Since a is not defined within any function, the scope of the variable a is global, which means that a is recognized within block 2.
+In effect if a variable is defined with keyword var, Javascript does not recognize the {} as the scope delimiter. Instead the variable must be enclosed within a “function” to limit it’s scope to that function.
+Let us re-write the code above using the keyword let.
+The let keyword was introduced as part of ES6 syntax, as an alternative to var to define variables in Javascript.
+
+</div></figure><pre id="4fc3b9a1-4f35-4616-b147-4dadc6932a0f" class="code"><code>{
+ let a=10;
+ console.log(a);
+} //block 1
+{
+  a++;
+  console.log(a);
+} //block 2
+/* Since we are using &quot;let a=10&quot;, scope of &quot;a&quot; is limited to block 1 and &quot;a&quot; is not 
+recognized in block 2 */</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="7bc346a3-ed7a-42d0-b032-8b571e209698"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">Note that now when you run the code above you will get an error, variable a not recognized in block2. This is because we have defined the variable a using the keyword let, which limits the scope of variable a to the code block within which it was defined.
+
+<strong>Function Scope</strong>
+In Javascript you limit the scope of a variable by defining it within a function. This is known as function scope.
+The keyword var is function scoped i.e. it does not recognize curly brackets i.e. {}, as delimiters. Instead it recognizes the function body as the delimiter.
+If we want to define a variable using var, and prevent it from being defined in the global namespace you can re-write it by enclosing the code blocks within functions.</div></figure><pre id="ee3f3417-37e7-4acb-9463-0281e4887ff3" class="code"><code>function block1() {
+var a=10;
+ console.log(a);
+} //function scope of block 1
+function block2() {
+  a++;
+  console.log(a);
+} //function scope of block 2
+/* Since we have enclosed block1 and block2, within separate functions, 
+the scope of &quot;var a=10&quot;, is limited to block 1 and &quot;a&quot; is not recognized in block 2 */</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="02190718-b94b-4acb-9b5e-3d261549a9bb"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">The above code is in effect the same as if we were using let a=10 instead of var a=10. The scope of the variable a is limited to the function within which it is defined, and a is no longer in the global namespace.
+
+<strong>Why would you chose “let” over “var”?</strong>
+While programming in Javascript it is a good practice not to define variables as global variables. This is because it is possible to inadvertently modify the global variable from anywhere within the Javascript code. To prevent this one needs to ensure that the scope of the variables are limited to the code block within which they need to be executed.
+In the past before keyword let was introduced as part of ES6, to circumvent the issue of variable scoping using var, programmers used the IIFE pattern to prevent the pollution of the global name space. However since the introduction of let, the IIFE pattern is no longer required, and the scope of the variable defined using let is limited to the code block within which it is defined.
+
+<strong>The “const” keyword</strong>
+If a variable is defined using the const keyword, its scope is limited to the block scope. In addition the variable cannot be reassigned to a different value.</div></figure><pre id="d9189f8c-d8ed-4ce5-99a8-6f4715660abd" class="code"><code>{
+ const PI=3.14;
+ console.log(PI);
+} //block 1
+{
+  console.log(PI);
+} //block 2
+/* Since we are using &quot;const PI=3.14&quot;, scope of &quot;PI&quot; is limited to block 1 and &quot;PI&quot; is 
+not recognized in block 2 */</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="0691fade-a730-46e6-ab2b-5aae4e81cbaf"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">Note that it is important to understand that const does NOT mean that the value is fixed and immutable. This is a common misunderstanding amongst many Javascript developers, and they incorrectly mentioned that a value defined by the const keyword is immutable (i.e. it cannot be changed).
+In the following example we can show that the value of the variable defined within the const keyword is mutable, i.e. it can be changed.</div></figure><pre id="37a71060-d711-4796-999a-9c40744c2614" class="code"><code>{
+ const a = [1,2,3];
+ const b = {name: &quot;hello&quot;};
+ a.push(4,5);     //mutating the value of constant &quot;a&quot;
+ b.name=&quot;World&quot;;  //mutating the value of constant &quot;b&quot;
+ 
+ console.log(a); //this will show [1,2,3,4,5]
+ console.log(b); //this will show {name: &quot;World&quot;}
+ 
+}
+/* This code will run without any errors, and shows that we 
+CAN mutate the values that are defined by &quot;const&quot; */</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="600f7d6c-b409-4fdf-b8d4-6f9720f6ed19"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">However note that these variables defined by const cannot be re-assigned.</div></figure><pre id="e2d89c8c-7a0d-43c1-86fc-ee9c9d2d1e38" class="code"><code>{
+ const name = &quot;Mike&quot;;
+ const PI = 3.14; 
+ const a = [1,2,3];
+ const b = {name: &quot;hello&quot;};
+ 
+ name=&quot;Joe&quot;; 
+/*this will throw an error, since we are attempting to re-assign &quot;name&quot; to a 
+ different value.*/
+ PI = PI + 1; 
+/*this will throw an error, since we are attempting to re-assign PI to a 
+different value.*/
+ a = [1,2,3,4,5];
+/*this will throw an error, since we are attempting to re-assign &quot;a&quot; to a 
+different value.*/
+ b = {name: &quot;hello&quot;};
+/*this will throw an error, since we are attempting to re-assign &quot;b&quot; to a 
+different value.*/
+}</code></pre><hr id="6832122e-40c8-41d6-82dc-7927ee538d2e"/><h2 id="08b41aa8-005e-454c-8685-b83407eda48b" class="">Question 3:</h2><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="a9caa771-582a-4427-b2aa-1654322194cf"><div style="font-size:1.5em"><span class="icon">📍</span></div><div style="width:100%">Write a brief intro on available data types in Javascript.</div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="34b5af55-afae-4854-b04c-4b3402540c6c"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>Data Types in JavaScript:</strong>
+Data types basically specify what kind of data can be stored and manipulated within a program.
+
+There are six basic data types in JavaScript which can be divided into three main categories: primitive (or primary), composite (or reference), and special data types. String, Number, and Boolean are primitive data types. Object, Array, and Function (which are all types of objects) are composite data types. Whereas Undefined and Null are special data types.
+
+<strong>Primitive data</strong> types can hold only one value at a time, whereas composite data types can hold collections of values and more complex entities. Let&#x27;s discuss each one of them in detail.
+
+<strong>1.</strong> <strong>The String Data Type</strong>
+The string data type is used to represent textual data (i.e. sequences of characters). Strings are created using single or double quotes surrounding one or more characters, as shown below:</div></figure><pre id="3cf75805-dd42-4c82-925f-81beea9cc9f2" class="code"><code>var a = &#x27;Hi there!&#x27;;  // using single quotes
+var b = &quot;Hi there!&quot;;  // using double quotes
+/*You can include quotes inside the string as long as they don&#x27;t match the 
+enclosing quotes.
+*/
+var a = &quot;Let&#x27;s have a cup of coffee.&quot;; // single quote inside double quotes
+var b = &#x27;He said &quot;Hello&quot; and left.&#x27;;  // double quotes inside single quotes
+var c = &#x27;We\&#x27;ll never give up.&#x27;;     // escaping single quote with backslash</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="866f3cc6-c1be-4968-86d6-e4bddefd1baa"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>2. The Number Data Type
+</strong>The number data type is used to represent positive or negative numbers with or without decimal place, or numbers written using exponential notation e.g. 1.5e-4 (equivalent to 1.5x10-4).</div></figure><pre id="b018d96b-53c8-49e4-aa88-a75f8f66efb0" class="code"><code>var a = 25;         // integer
+var b = 80.5;       // floating-point number
+var c = 4.25e+6;    // exponential notation, same as 4.25e6 or 4250000
+var d = 4.25e-6;    // exponential notation, same as 0.00000425</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="e8b56381-ac35-4442-8f90-7915b714557c"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">The Number data type also includes some special values which are: Infinity, -Infinity and NaN. Infinity represents the mathematical Infinity ∞, which is greater than any number. Infinity is the result of dividing a nonzero number by 0, as demonstrated below:</div></figure><pre id="f755f997-e600-4944-bb04-fae3beb783cf" class="code"><code>alert(16 / 0);  // Output: Infinity
+alert(-16 / 0); // Output: -Infinity
+alert(16 / -0); // Output: -Infini</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="35a32112-947d-42e9-9600-88ae78f68101"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">While NaN represents a special Not-a-Number value. It is a result of an invalid 
+or an undefined mathematical operation, like taking the square root of -1 or 
+dividing 0 by 0, etc.
+
+<strong>3. The Boolean Data Type</strong>
+The Boolean data type can hold only two values: true or false. It is typically used to store values like yes (true) or no (false), on (true) or off (false), etc. as demonstrated below:</div></figure><pre id="4495c38c-b1de-4ac5-a37a-bcfaf49b2081" class="code"><code>var isReading = true;   // yes, I&#x27;m reading
+var isSleeping = false; // no, I&#x27;m not sleeping</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="2a871e17-26b2-43d3-b308-caacbd25171b"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">Boolean values also come as a result of comparisons in a program. The following example compares two variables and shows the result in an alert dialog box:</div></figure><pre id="a3396e8d-2ed8-411b-a414-29b10de9424a" class="code"><code>var a = 2, b = 5, c = 10;
+alert(b &gt; a) // Output: true
+alert(b &gt; c) // Output: false</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="04ae739f-5b56-4482-ba89-678bd88a9631"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">The Undefined Data Type
+The undefined data type can only have one value-the special value undefined. If a variable has been declared, but has not been assigned a value, has the value undefined.</div></figure><pre id="eab60c63-053d-4374-a2e0-a1a4a5b84e08" class="code"><code>var a;
+var b = &quot;Hello World!&quot;
+ 
+alert(a) // Output: undefined
+alert(b) // Output: Hello World!</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="51fd3cbc-b2d9-4cfe-8db7-3fb1495f913d"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>4. The Null Data Type</strong>
+This is another special data type that can have only one value-the null value. A null value means that there is no value. It is not equivalent to an empty string (&quot;&quot;) or 0, it is simply nothing.
+A variable can be explicitly emptied of its current contents by assigning it the null value.</div></figure><pre id="a9a0e059-4587-4f3f-9699-3d83fa6280c9" class="code"><code>var a = null;
+alert(a); // Output: null
+ 
+var b = &quot;Hello World!&quot;
+alert(b); // Output: Hello World!
+ 
+b = null;
+alert(b) // Output: null</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="44d88db2-ffcc-4f15-b94a-f282b65ecae9"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>5. The Object Data Type</strong>
+The object is a complex data type that allows you to store collections of data.
+An object contains properties, defined as a key-value pair. A property key (name) is always a string, but the value can be any data type, like strings, numbers, booleans, or complex data types like arrays, function and other objects. You&#x27;ll learn more about objects in upcoming chapters.
+
+The following example will show you the simplest way to create an object in JavaScript.</div></figure><pre id="06db6208-c7f0-42bb-b6de-984b8dad71de" class="code"><code>var emptyObject = {};
+var person = {&quot;name&quot;: &quot;Clark&quot;, &quot;surname&quot;: &quot;Kent&quot;, &quot;age&quot;: &quot;36&quot;};
+ 
+// For better reading
+var car = {
+    &quot;modal&quot;: &quot;BMW X3&quot;,
+    &quot;color&quot;: &quot;white&quot;,
+    &quot;doors&quot;: 5
+}</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="4867763f-21ef-4e9b-be15-7bf2cedaf290"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">You can omit the quotes around property name if the name is a valid JavaScript name. That means quotes are required around &quot;first-name&quot; but are optional around firstname. So the car object in the above example can also be written as:</div></figure><pre id="0977da31-4045-4415-af2f-79d731777151" class="code"><code>var car = {
+    modal: &quot;BMW X3&quot;,
+    color: &quot;white&quot;,
+    doors: 5
+}</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="731c870b-9791-42c3-9243-4be955880c43"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>6. The Array Data Type</strong>
+An array is a type of object used for storing multiple values in single variable. Each value (also called an element) in an array has a numeric position, known as its index, and it may contain data of any data type-numbers, strings, booleans, functions, objects, and even other arrays. The array index starts from 0, so that the first array element is arr[0] not arr[1].
+
+The simplest way to create an array is by specifying the array elements as a comma-separated list enclosed by square brackets, as shown in the example below:</div></figure><pre id="5a00d211-f38f-4133-a1a0-60e8a5f385cc" class="code"><code>var colors = [&quot;Red&quot;, &quot;Yellow&quot;, &quot;Green&quot;, &quot;Orange&quot;];
+var cities = [&quot;London&quot;, &quot;Paris&quot;, &quot;New York&quot;];
+ 
+alert(colors[0]);   // Output: Red
+alert(cities[2]);   // Output: New York</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="c8580165-826b-48bb-9e6a-e4f9190bcb57"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>7. The Function Data Type</strong>
+The function is callable object that executes a block of code. Since functions are objects, so it is possible to assign them to variables, as shown in the example below:</div></figure><pre id="d39165a2-248b-4d66-8110-a97a61976a43" class="code"><code>var greeting = function(){ 
+    return &quot;Hello World!&quot;; 
+}
+// Check the type of greeting variable
+alert(typeof greeting) // Output: function
+alert(greeting());     // Output: Hello World!</code></pre><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="226eb192-922a-4afa-880f-6338a2c1d75f"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">In fact, functions can be used at any place any other value can be used. Functions can be stored in variables, objects, and arrays. Functions can be passed as arguments to other functions, and functions can be returned from functions. Consider the following function:</div></figure><pre id="6c6d684e-46a3-4e07-b748-394bf330bb40" class="code"><code>function createGreeting(name){
+    return &quot;Hello, &quot; + name;
+}
+function displayGreeting(greetingFunction, userName){
+    return greetingFunction(userName);
+}
+ 
+var result = displayGreeting(createGreeting, &quot;Peter&quot;);
+alert(result); // Output: Hello, Peter</code></pre><hr id="972aff15-eed4-422f-8a5d-a2bd501cc83a"/><p id="f433c0f6-9eb7-4439-822a-a7bd47482387" class="">
+</p></div></article></body></html>
