@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment Day 2</title>
+
+</head>
+
+<body>
+  <h1>Assignment Questions for Day 2</h1>
+
+  <h3><mark>NOTE: Press F12 to view answers in the browser console</mark></h3>
+
+  <h2>Question 2: Explain with examples the remaining methods of String and Array.</h2>
+  <p style="color:blue;font-size:18px;">Ans:  1. String Methods <br>
+There are 3 methods in JavaScript to get a substring: substring, substr and slice.
+<br><br>
+1. str.slice(start [, end])<br>
+Returns the part of the string from start to (but not including) end.
+<mark style="background-color:#D3D3D3"><br>let str = "stringify";<br>
+console.log( str.slice(0, 5) ); // 'strin', the substring from 0 to 5 (not including 5)<br>
+console.log( str.slice(0, 1) ); // 's', from 0 to 1, but not including 1, so only character at 0
+<br>
+
+// If there is no second argument, then slice goes till the end of the string:<br>
+console.log( str.slice(2) ); // 'ringify', from the 2nd position till the end
+<br>
+
+// Negative values for start/end are also possible. They mean the position is counted from the string end:<br>
+// start at the 4th position from the right, end at the 1st from the right <br>
+console.log( str.slice(-4, -1) ); // 'gif'</mark>
+
+<br><br>
+2. str.substring(start [, end])<br>
+Returns the part of the string between start and end.
+<br>
+This is almost the same as slice, but it allows start to be greater than end.
+<br>
+<mark style="background-color:#D3D3D3">// these are same for substring <br>
+console.log( str.substring(2, 6) ); // "ring" <br>
+console.log( str.substring(6, 2) ); // "ring" <br>
+
+// ...but not for slice: <br>
+console.log( str.slice(2, 6) ); // "ring" (the same) <br>
+console.log( str.slice(6, 2) ); // "" (an empty string) <br>
+// Negative arguments are (unlike slice) not supported, they are treated as 0.</mark>
+
+<br><br>
+3. str.substr(start [, length])<br>
+Returns the part of the string from start, with the given length.
+<br>
+In contrast with the previous methods, this one allows us to specify the length instead of the ending position:
+<br>
+<mark style="background-color:#D3D3D3">
+console.log( str.substr(2, 4) ); // 'ring', from the 2nd position get 4 characters <br>
+// The first argument may be negative, to count from the end:<br>
+console.log( str.substr(-4, 2) ); // 'gi', from the 4th position get 2 characters <br></mark>
+
+<br>
+Replacing String Content <br>
+The replace() method replaces a specified value with another value in a string:<br>
+
+<mark style="background-color:#D3D3D3">var str2 = "I am improving myself!";<br>
+console.log(str2.replace("improving", "Upgrading..,"));</mark>
+</p>
+<br><br>
+
+<p style="color:blue;font-size:18px;">
+
+2. Array Methods:
+<br>
+How to delete an element from the array?
+<br>
+The arrays are objects, so we can try to use <mark>delete</mark>:
+<br><mark style="background-color:#D3D3D3">
+  let arr = ["I", "go", "home"];<br>
+
+  delete arr[1]; // remove "go"<br>
+
+  alert( arr[1] ); // undefined
+<br>
+  // now arr = ["I",  , "home"];<br>
+  alert( arr.length ); // 3 <br>
+  The element was removed, but the array still has 3 elements, we can see that arr.length == 3.</mark>
+<br>
+That’s natural, because delete obj.key removes a value by the key. It’s all it does. Fine for objects.
+But for arrays we usually want the rest of elements to shift and occupy the freed place. We expect to have a shorter array now.
+<br>
+So, special methods should be used.
+<br>
+The <mark>arr.splice(start)</mark> method is a swiss army knife for arrays. It can do everything: insert, remove and replace elements.
+<br>It starts from the position index: removes deleteCount elements and then inserts elem1, ..., elemN at their place.
+Returns the array of removed elements.
+<br>
+This method is easy to grasp by examples.
+Let’s start with the deletion:
+<br>
+<mark style="background-color:#D3D3D3">let arr = ["I", "study", "JavaScript"];
+<br>
+arr.splice(1, 1); // from index 1 remove 1 element
+<br>
+alert( arr ); // ["I", "JavaScript"]
+<br><br>
+let arr = ["I", "study", "JavaScript", "right", "now"];
+<br>
+// remove 2 first elements <br>
+let removed = arr.splice(0, 2);
+<br>
+alert( removed ); // "I", "study"  array of removed elements
+</mark>
+<br>
+The call to <mark>arr.sort() </mark>sorts the array in place, changing its element order.
+<br>
+It also returns the sorted array, but the returned value is usually ignored, as arr itself is modified.<br>
+<mark style="background-color:#D3D3D3">
+  let arr = [ 1, 2, 15 ];
+  <br>
+  // the method reorders the content of arr <br>
+  arr.sort();<br>
+
+  alert( arr );  // 1, 15, 2</mark>
+<br>
+Did you notice anything strange in the outcome?
+The order became 1, 15, 2. Incorrect. But why?
+The items are sorted as strings by default.
+Literally, all elements are converted to strings for comparisons. For strings, lexicographic ordering is applied and indeed "2" > "15".
+To use our own sorting order, we need to supply a function as the argument of arr.sort().
+The function should compare two arbitrary values and return:
+<br>
+<mark style="background-color:#D3D3D3">
+function compareNumeric(a, b) { <br>
+  if (a > b) return 1;<br>
+  if (a == b) return 0;<br>
+  if (a < b) return -1; <br>
+}<br>
+<br>
+let arr5 = [ 1, 15, 2 ];<br>
+console.log(arr5);<br>
+arr5.sort(compareNumeric);<br>
+<br>
+console.log(arr5);  // 1, 2, 15
+</mark>
+
+
+</p>
+
+  <script src="Q2.js" charset="utf-8"></script>
+
+</body>
+
+</html>
