@@ -38,16 +38,16 @@ class Moderator extends User {
         super(name, age, email);
     }
     addCoins(username) {
-        this.name = username;
-        this.luCoins++;
-        console.log(`Moderator Added LU coin(s) to ${this.name}.`);
-        return this.luCoins;
+        
+        username.luCoins++;
+        console.log(`Moderator Added LU coin(s) to ${username.name}.`);
+        return username.luCoins;
     }
     removeCoins(username) {
-        this.name = username;
-        this.luCoins--;
-        console.log(`Moderator Deducted LU coin(s) from ${this.name}.`);
-        return this.luCoins;
+       
+        username.luCoins--;
+        console.log(`Moderator Deducted LU coin(s) from ${username.name}.`);
+        return username.luCoins;
     }
 
     // deleteUser(user) {
@@ -78,18 +78,19 @@ class Admin extends Moderator {
 }
 
 let user1 = new User('Raj',20,'r@gmail.com');
-console.log(user1.login());
+user1.login();
+    console.log(JSON.stringify(user1));
 let mod1 = new Moderator('LetsUpgrade Moderator',2,'lum@gmail.com');
-// console.log(mod1);
-user1.luCoins = mod1.addCoins(user1.name);
-user1.luCoins = mod1.addCoins(user1.name);
-user1.luCoins = mod1.removeCoins(user1.name);
-console.log(user1);
+console.log(mod1);
+user1.luCoins = mod1.addCoins(user1);
+user1.luCoins = mod1.addCoins(user1);
+user1.luCoins = mod1.removeCoins(user1);
+console.log(JSON.stringify(user1));
 let ad1 = new Admin('LetsUpgrade Admin', 2, 'lua@gmail.com');
-// console.log(ad1);
+console.log(ad1);
 user1.courses = ad1.addCourse(user1,'JavaScript');
 user1.courses = ad1.addCourse(user1,'Python');
-console.log(user1);
+console.log(JSON.stringify(user1));
 user1.courses = ad1.deleteCourse(user1, 'Python');
 console.log(user1);
 user1.logout();
