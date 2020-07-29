@@ -1,0 +1,172 @@
+html,
+body {
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
+    height: 100%;
+    width: 99.7%;
+    position: absolute;
+    background-color: black;
+    background-image: url('https://wallpapercave.com/wp/5KLTq1z.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+      
+    /* z-index: -2; */
+}
+.container {
+
+    text-align: center;
+}
+
+p {
+    color: white;
+   font-family: 'Lora',
+   serif;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    font-size: 1.5em;
+    font-variant: small-caps;
+    padding: 10px;
+    padding-right:30px;
+}
+
+p :hover {
+    text-decoration: none;
+}
+
+#gen {
+    outline: none;
+    /* padding-top: 5px; */
+    text-decoration: none;
+    opacity: 0.6;
+    margin-top: 0px;
+    background-color: black;
+    color: white;
+    border: thin solid white;
+    height: 30px;
+    width: 100px;
+    border-radius: 2px;
+    transition: 0.5s;
+    padding-bottom: 5px;
+}
+
+#gen:hover {
+    background-color: white;
+    color: black;
+    border: thin solid black;
+    opacity: 0.8;
+}
+
+#gen a {
+    text-decoration: none;
+}
+
+.main-container {
+    margin: 5% auto;
+    padding: 1%;
+    height: auto;
+    width: 50%;
+    background-color: rgba(23, 0, 87, 0.5);
+   
+    border-radius: 12px;
+    box-shadow: 1px -3px 12px 7px #dacfeb73;
+    text-align: center;
+
+}
+
+h1{
+    font-family: 'Montserrat',
+    sans-serif;
+    color: whitesmoke;
+    margin-top: 0.1%;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #73E831;
+}
+
+ul {
+    list-style-type: none;
+    /* get rid of bullet points on side of list items */
+}
+/* todo-form */
+
+.todo-form {
+    margin: 40px 0px;
+}
+
+.todo-input {
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.add-button {
+    background-color: #0000ff;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 1.2rem;
+}
+
+/* todo-form style ends */
+
+/* todo-items */
+.todo-items {
+    text-align: left;
+    width: 77%;
+    margin-left: 6.2%;
+    font-family: 'Montserrat',
+    sans-serif;   
+}
+
+/* each li with class="item" */
+.item {
+    background-color: #fff;
+    padding: 0.5%;
+    font-size: 1rem;
+}
+
+.item:first-child {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.item:last-child {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+/* item style end */
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.delete-button {
+    float: right;
+    background-color: #dc143c;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    padding: 2px 5px;
+    margin-right: 2%;
+    font-size: 0.9rem;
+    font-weight: 550;
+}
+
+/* applied when the todo item is checked */
+.checked {
+    text-decoration: line-through;
+}
+
+/* todo-items style ends */
+
+/* container style ends */
